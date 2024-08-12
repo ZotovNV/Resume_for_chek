@@ -1,5 +1,5 @@
 --==========================================
---Итоговая работа в 2-ух вариантах:
+--РС‚РѕРіРѕРІР°СЏ СЂР°Р±РѕС‚Р° РІ 2-СѓС… РІР°СЂРёР°РЅС‚Р°С…:
 
 select * from pg_catalog.pg_roles;
 
@@ -16,42 +16,42 @@ grant usage on schema information_schema, pg_catalog, public to netocourier;
 grant select on all tables in schema information_schema, pg_catalog  to netocourier;
 grant all on schema public to netocourier;
 
-create type status as enum('Выполняется', 'Выполнено', 'Отменен', 'В очереди');  -- присвоение значений статуса
+create type status as enum('Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ', 'Р’С‹РїРѕР»РЅРµРЅРѕ', 'РћС‚РјРµРЅРµРЅ', 'Р’ РѕС‡РµСЂРµРґРё');  -- РїСЂРёСЃРІРѕРµРЅРёРµ Р·РЅР°С‡РµРЅРёР№ СЃС‚Р°С‚СѓСЃР°
 
 create table "user" (
 id uuid default uuid_generate_v4 (), --uuid PK
-last_name varchar(20) not null, --фамилия сотрудника
-first_name varchar(20) not null, --имя сотрудника
-dismissed boolean default false,--уволен или нет, значение по умолчанию "нет"
+last_name varchar(20) not null, --С„Р°РјРёР»РёСЏ СЃРѕС‚СЂСѓРґРЅРёРєР°
+first_name varchar(20) not null, --РёРјСЏ СЃРѕС‚СЂСѓРґРЅРёРєР°
+dismissed boolean default false,--СѓРІРѕР»РµРЅ РёР»Рё РЅРµС‚, Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ "РЅРµС‚"
 primary key (id)
 );
 
 create table account (
 id uuid default uuid_generate_v4(),--uuid PK
-"name" varchar(20) not null, --название контрагента
+"name" varchar(20) not null, --РЅР°Р·РІР°РЅРёРµ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
 primary key(id)
 );
 
 create table contact (
 id uuid default uuid_generate_v4(), --uuid PK
-last_name varchar(20) not null, --фамилия контакта
-first_name varchar(20) not null, --имя контакта
-account_id uuid, -- uuid FK id контрагента
+last_name varchar(20) not null, --С„Р°РјРёР»РёСЏ РєРѕРЅС‚Р°РєС‚Р°
+first_name varchar(20) not null, --РёРјСЏ РєРѕРЅС‚Р°РєС‚Р°
+account_id uuid, -- uuid FK id РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
 primary key(id),
 foreign key(account_id) references account(id)
 );
 
 create table courier(
 id uuid default uuid_generate_v4(), -- uuid PK
-from_place varchar(255) not null, --откуда
-where_place varchar(255) not null, --куда
-"name" varchar(50) not null, --название документа
-account_id uuid not null, --uuid FK id контрагента
-contact_id uuid not null,--uuid FK id контакта 
-description text, --описание
-user_id uuid not null, --uuid FK id сотрудника отправителя
-status status default ('В очереди'), -- статусы 'В очереди', 'Выполняется', 'Выполнено', 'Отменен'. По умолчанию 'В очереди'
-created_date date default now(), --дата создания заявки, значение по умолчанию now()
+from_place varchar(255) not null, --РѕС‚РєСѓРґР°
+where_place varchar(255) not null, --РєСѓРґР°
+"name" varchar(50) not null, --РЅР°Р·РІР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°
+account_id uuid not null, --uuid FK id РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+contact_id uuid not null,--uuid FK id РєРѕРЅС‚Р°РєС‚Р° 
+description text, --РѕРїРёСЃР°РЅРёРµ
+user_id uuid not null, --uuid FK id СЃРѕС‚СЂСѓРґРЅРёРєР° РѕС‚РїСЂР°РІРёС‚РµР»СЏ
+status status default ('Р’ РѕС‡РµСЂРµРґРё'), -- СЃС‚Р°С‚СѓСЃС‹ 'Р’ РѕС‡РµСЂРµРґРё', 'Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ', 'Р’С‹РїРѕР»РЅРµРЅРѕ', 'РћС‚РјРµРЅРµРЅ'. РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ 'Р’ РѕС‡РµСЂРµРґРё'
+created_date date default now(), --РґР°С‚Р° СЃРѕР·РґР°РЅРёСЏ Р·Р°СЏРІРєРё, Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ now()
 primary key(id),
 foreign key(account_id) references account(id),
 foreign key(contact_id) references contact(id),
@@ -76,10 +76,10 @@ drop table "user";
 --drop function rndm_uuid()
 
 
-create or replace function rndm_string(integer) returns varchar -- генерация строки
+create or replace function rndm_string(integer) returns varchar -- РіРµРЅРµСЂР°С†РёСЏ СЃС‚СЂРѕРєРё
 as $$
 begin
-	return substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*7+1)::integer;
+	return substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*7+1)::integer;
 end;
 $$ language plpgsql;
 
@@ -87,7 +87,7 @@ select rndm_string(1)
 
 drop function rndm_string
 
-create or replace function rndm_bool() returns boolean -- генерация булева значения
+create or replace function rndm_bool() returns boolean -- РіРµРЅРµСЂР°С†РёСЏ Р±СѓР»РµРІР° Р·РЅР°С‡РµРЅРёСЏ
 as $$
 begin
 	return random()::int;
@@ -98,7 +98,7 @@ select rndm_bool()
 
 drop function rndm_bool
 
-create or replace function rnmd_date() returns timestamp -- генерация даты в формате timestamp
+create or replace function rnmd_date() returns timestamp -- РіРµРЅРµСЂР°С†РёСЏ РґР°С‚С‹ РІ С„РѕСЂРјР°С‚Рµ timestamp
 as $$
 begin 
 	return now() - interval '1 day' * round(random()*100) as timestamp;
@@ -109,7 +109,7 @@ select rnmd_date();
 
 drop function rnmd_date
 
-create or replace function rndm_id(varchar) returns uuid -- случайное id из таблицы в запросе
+create or replace function rndm_id(varchar) returns uuid -- СЃР»СѓС‡Р°Р№РЅРѕРµ id РёР· С‚Р°Р±Р»РёС†С‹ РІ Р·Р°РїСЂРѕСЃРµ
 as $$
 declare rndm_u uuid;
 begin
@@ -123,7 +123,7 @@ select rndm_id('account');
 
 drop function rndm_id
 
-create or replace function rndm_status() returns status  -- случайная запись массива
+create or replace function rndm_status() returns status  -- СЃР»СѓС‡Р°Р№РЅР°СЏ Р·Р°РїРёСЃСЊ РјР°СЃСЃРёРІР°
 as $$
 begin 
 	return rndst from (select unnest(enum_range(null::status)) as rndst) rnd order by random() limit 1;
@@ -134,7 +134,7 @@ select rndm_status();
 
 drop function rndm_status
 
---6.Процедура заполнения тестовыми данными--
+--6.РџСЂРѕС†РµРґСѓСЂР° Р·Р°РїРѕР»РЅРµРЅРёСЏ С‚РµСЃС‚РѕРІС‹РјРё РґР°РЅРЅС‹РјРё--
 
 create or replace procedure insert_test_data(num integer)
 as $$
@@ -180,7 +180,7 @@ call insert_test_data(10)
 
 drop procedure insert_test_data
 
--- 7. Для удаления тестовых данных
+-- 7. Р”Р»СЏ СѓРґР°Р»РµРЅРёСЏ С‚РµСЃС‚РѕРІС‹С… РґР°РЅРЅС‹С…
 
 create or replace procedure erase_test_data() 
 as $$
@@ -196,7 +196,7 @@ call erase_test_data();
 
 drop procedure erase_test_data
 
---8.Внесение новой записи в таблицу courier 
+--8.Р’РЅРµСЃРµРЅРёРµ РЅРѕРІРѕР№ Р·Р°РїРёСЃРё РІ С‚Р°Р±Р»РёС†Сѓ courier 
 
 create or replace procedure add_courier(from_place varchar, where_place varchar, "name" varchar, account_id uuid, contact_id uuid, description text, user_id uuid)
 as $$
@@ -210,7 +210,7 @@ call add_courier(left(rndm_string(5), 255), left(rndm_string(5), 255), left(rndm
 
 drop procedure add_courier
 
---9.Функция по получению записей о заявках на курьера
+--9.Р¤СѓРЅРєС†РёСЏ РїРѕ РїРѕР»СѓС‡РµРЅРёСЋ Р·Р°РїРёСЃРµР№ Рѕ Р·Р°СЏРІРєР°С… РЅР° РєСѓСЂСЊРµСЂР°
 
 create or replace function get_courier()
 	returns table ( id uuid, from_place varchar, where_place varchar,
@@ -246,7 +246,7 @@ select * from get_courier();
 
 drop function get_courier
 
---10.Функция по изменению статуса заявки
+--10.Р¤СѓРЅРєС†РёСЏ РїРѕ РёР·РјРµРЅРµРЅРёСЋ СЃС‚Р°С‚СѓСЃР° Р·Р°СЏРІРєРё
 
 create or replace procedure change_status(status, uuid)
 as $$
@@ -260,7 +260,7 @@ call change_status(rndm_status(), rndm_id('courier'));
 
 drop procedure change_status
 
---11. Функция получения списка сотрудников компании.
+--11. Р¤СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃРїРёСЃРєР° СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РєРѕРјРїР°РЅРёРё.
 
 create or replace function get_users() 
 	returns table ("user" varchar)
@@ -277,7 +277,7 @@ select * from get_users()
 
 drop function get_users
 
---12.Функция получения списка контрагентов.
+--12.Р¤СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃРїРёСЃРєР° РєРѕРЅС‚СЂР°РіРµРЅС‚РѕРІ.
 
 create or replace function get_accounts()
 	returns table (account varchar)
@@ -294,14 +294,14 @@ select * from get_accounts();
 
 drop function get_accounts
 
---13.Функция  получения списка контактов.
+--13.Р¤СѓРЅРєС†РёСЏ  РїРѕР»СѓС‡РµРЅРёСЏ СЃРїРёСЃРєР° РєРѕРЅС‚Р°РєС‚РѕРІ.
 
 create or replace function get_contacts(account_id uuid default null)
 	returns table (contact varchar)
 as $$
 begin
 	if $1 is NULL then
-		return query select 'Выберите контрагента'::varchar;
+		return query select 'Р’С‹Р±РµСЂРёС‚Рµ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°'::varchar;
 	else
 		return query
 			select concat(last_name, ' ', first_name)::varchar from contact
@@ -317,27 +317,27 @@ select * from contact;
 
 drop function get_contacts
 
---14. Представление по получению статистики о заявках на курьера
+--14. РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РїРѕ РїРѕР»СѓС‡РµРЅРёСЋ СЃС‚Р°С‚РёСЃС‚РёРєРё Рѕ Р·Р°СЏРІРєР°С… РЅР° РєСѓСЂСЊРµСЂР°
 
 create view courier_statistic as 
 with 
 	cte_courier as(
 		select 
 			account_id,
-			count(case when "status" = 'Выполнено' then status end) as count_complete, --количество завершенных заказов для каждого контрагента
-			count(case when "status" = 'Выполняется' then status end) as count_courier, --количество заказов на курьера для каждого контрагента
-			count(case when "status" = 'Отменен' then status end) as count_canceled, --количество отмененных заказов для каждого контрагента
-			array_remove(array_agg(case when "status" = 'Отменен' then user_id end), NULL) as cansel_user_array, --массив с идентификаторами сотрудников, по которым были заказы со статусом "Отменен" для каждого контрагента
-			count(case when date_trunc('Month', created_date) = date_trunc('Month', current_date) then id end) as current_count, -- кол-во заказов в текущем месяце
-			count(case when date_trunc('Month', created_date) = date_trunc('Month', current_date - interval '1 month') then id end) as last_count,-- Кол-во заказов в предыдущем месяце
-			count(distinct where_place) as count_where_place --количество мест доставки для каждого контрагента
+			count(case when "status" = 'Р’С‹РїРѕР»РЅРµРЅРѕ' then status end) as count_complete, --РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РІРµСЂС€РµРЅРЅС‹С… Р·Р°РєР°Р·РѕРІ РґР»СЏ РєР°Р¶РґРѕРіРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+			count(case when "status" = 'Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ' then status end) as count_courier, --РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·РѕРІ РЅР° РєСѓСЂСЊРµСЂР° РґР»СЏ РєР°Р¶РґРѕРіРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+			count(case when "status" = 'РћС‚РјРµРЅРµРЅ' then status end) as count_canceled, --РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РјРµРЅРµРЅРЅС‹С… Р·Р°РєР°Р·РѕРІ РґР»СЏ РєР°Р¶РґРѕРіРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+			array_remove(array_agg(case when "status" = 'РћС‚РјРµРЅРµРЅ' then user_id end), NULL) as cansel_user_array, --РјР°СЃСЃРёРІ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР°РјРё СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ, РїРѕ РєРѕС‚РѕСЂС‹Рј Р±С‹Р»Рё Р·Р°РєР°Р·С‹ СЃРѕ СЃС‚Р°С‚СѓСЃРѕРј "РћС‚РјРµРЅРµРЅ" РґР»СЏ РєР°Р¶РґРѕРіРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+			count(case when date_trunc('Month', created_date) = date_trunc('Month', current_date) then id end) as current_count, -- РєРѕР»-РІРѕ Р·Р°РєР°Р·РѕРІ РІ С‚РµРєСѓС‰РµРј РјРµСЃСЏС†Рµ
+			count(case when date_trunc('Month', created_date) = date_trunc('Month', current_date - interval '1 month') then id end) as last_count,-- РљРѕР»-РІРѕ Р·Р°РєР°Р·РѕРІ РІ РїСЂРµРґС‹РґСѓС‰РµРј РјРµСЃСЏС†Рµ
+			count(distinct where_place) as count_where_place --РєРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ РґРѕСЃС‚Р°РІРєРё РґР»СЏ РєР°Р¶РґРѕРіРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
 		from 
 			courier
 		group by account_id),
 	cte_contact as(
 		select
 			account_id,
-			count(id) as count_contact   --количество контактов по контрагенту, которым доставляются документы
+			count(id) as count_contact   --РєРѕР»РёС‡РµСЃС‚РІРѕ РєРѕРЅС‚Р°РєС‚РѕРІ РїРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Сѓ, РєРѕС‚РѕСЂС‹Рј РґРѕСЃС‚Р°РІР»СЏСЋС‚СЃСЏ РґРѕРєСѓРјРµРЅС‚С‹
 		from
 			contact
 		group by account_id)
@@ -364,7 +364,7 @@ select * from courier_statistic;
 drop view courier_statistic
 
 --===============
---Итоговая работа 
+--РС‚РѕРіРѕРІР°СЏ СЂР°Р±РѕС‚Р° 
 
 create role netocourier with login password 'NetoSQL2022';
 revoke all privileges on database postgres from netocourier;
@@ -378,42 +378,42 @@ grant all privileges on all tables in schema public to netocourier;
 grant all privileges on schema public to netocourier;
 grant select on all tables in schema information_schema, pg_catalog  to netocourier;
 
-create type status as enum('Выполняется', 'Выполнено', 'Отменен', 'В очереди');  -- присвоение значений статуса
+create type status as enum('Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ', 'Р’С‹РїРѕР»РЅРµРЅРѕ', 'РћС‚РјРµРЅРµРЅ', 'Р’ РѕС‡РµСЂРµРґРё');  -- РїСЂРёСЃРІРѕРµРЅРёРµ Р·РЅР°С‡РµРЅРёР№ СЃС‚Р°С‚СѓСЃР°
 
 create table "user" (
 id uuid not null default uuid_generate_v4(), --uuid PK
-last_name varchar(40) not null, --фамилия сотрудника
-first_name varchar(40) not null, --имя сотрудника
-dismissed boolean not null default false,--уволен или нет, значение по умолчанию "нет"
+last_name varchar(40) not null, --С„Р°РјРёР»РёСЏ СЃРѕС‚СЂСѓРґРЅРёРєР°
+first_name varchar(40) not null, --РёРјСЏ СЃРѕС‚СЂСѓРґРЅРёРєР°
+dismissed boolean not null default false,--СѓРІРѕР»РµРЅ РёР»Рё РЅРµС‚, Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ "РЅРµС‚"
 primary key (id)
 );
 
 create table account (
 id uuid  not null default uuid_generate_v4(),--uuid PK
-"name" varchar(60) not null, --название контрагента
+"name" varchar(60) not null, --РЅР°Р·РІР°РЅРёРµ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
 primary key(id)
 );
 
 create table contact (
 id uuid not null default uuid_generate_v4(), --uuid PK
-last_name varchar(40) not null, --фамилия контакта
-first_name varchar(40) not null, --имя контакта
-account_id uuid not null, -- uuid FK id контрагента
+last_name varchar(40) not null, --С„Р°РјРёР»РёСЏ РєРѕРЅС‚Р°РєС‚Р°
+first_name varchar(40) not null, --РёРјСЏ РєРѕРЅС‚Р°РєС‚Р°
+account_id uuid not null, -- uuid FK id РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
 primary key(id),
 foreign key(account_id) references account(id)
 );
 
 create table courier(
 id uuid not null default uuid_generate_v4(), -- uuid PK
-from_place varchar(200) not null, --откуда
-where_place varchar(200) not null, --куда
-"name" varchar(50) not null, --название документа
-account_id uuid not null, --uuid FK id контрагента
-contact_id uuid not null,--uuid FK id контакта 
-description text, --описание
-user_id uuid not null, --uuid FK id сотрудника отправителя
-status status not null default ('В очереди'), -- статусы 'В очереди', 'Выполняется', 'Выполнено', 'Отменен'. По умолчанию 'В очереди'
-created_date date not null default now(), --дата создания заявки, значение по умолчанию now()
+from_place varchar(200) not null, --РѕС‚РєСѓРґР°
+where_place varchar(200) not null, --РєСѓРґР°
+"name" varchar(50) not null, --РЅР°Р·РІР°РЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°
+account_id uuid not null, --uuid FK id РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+contact_id uuid not null,--uuid FK id РєРѕРЅС‚Р°РєС‚Р° 
+description text, --РѕРїРёСЃР°РЅРёРµ
+user_id uuid not null, --uuid FK id СЃРѕС‚СЂСѓРґРЅРёРєР° РѕС‚РїСЂР°РІРёС‚РµР»СЏ
+status status not null default ('Р’ РѕС‡РµСЂРµРґРё'), -- СЃС‚Р°С‚СѓСЃС‹ 'Р’ РѕС‡РµСЂРµРґРё', 'Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ', 'Р’С‹РїРѕР»РЅРµРЅРѕ', 'РћС‚РјРµРЅРµРЅ'. РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ 'Р’ РѕС‡РµСЂРµРґРё'
+created_date date not null default now(), --РґР°С‚Р° СЃРѕР·РґР°РЅРёСЏ Р·Р°СЏРІРєРё, Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ now()
 primary key(id),
 foreign key(account_id) references account(id),
 foreign key(contact_id) references contact(id),
@@ -426,7 +426,7 @@ drop table contact;
 drop table account;
 drop table "user";
 
---6.Процедура заполнения тестовыми данными--
+--6.РџСЂРѕС†РµРґСѓСЂР° Р·Р°РїРѕР»РЅРµРЅРёСЏ С‚РµСЃС‚РѕРІС‹РјРё РґР°РЅРЅС‹РјРё--
 
 create or replace procedure insert_test_data(num integer) 
 as $$
@@ -435,34 +435,34 @@ declare
 begin
 	while i<= num loop 
 		insert into account ("name")
-			values (left(repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*1+1)::integer), 60));
+			values (left(repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*1+1)::integer), 60));
 		i:=i+1;
 	end loop;
 	i:=1;
 	while i<= num loop 
 		insert into "user"(last_name, first_name, dismissed)
-			values(left(repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*1+1)::integer), 40), 
-				 left(repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*1+1)::integer), 40),
+			values(left(repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*1+1)::integer), 40), 
+				 left(repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*1+1)::integer), 40),
 				(select random()<0.5));
 		i:=i+1;
 	end loop;
 	i:=1;
 	while i<= num*2 loop 
 		insert into contact(last_name, first_name, account_id)
-			values(left(repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*1+1)::integer), 40),
-				 left(repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*1+1)::integer), 40), 
+			values(left(repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*1+1)::integer), 40),
+				 left(repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*1+1)::integer), 40), 
 				(select id from account order by random() limit 1));
 		i:=i+1;
 	end loop;
 	i:=1;
 	while i<= num*5 loop 
 		insert into courier(from_place, where_place, "name", account_id, contact_id, description, user_id, "status", created_date)
-			values(left(repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*6+1)::integer), 200),
-				left(repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*6+1)::integer), 200),
-				left(repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*1+1)::integer), 50),
+			values(left(repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*6+1)::integer), 200),
+				left(repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*6+1)::integer), 200),
+				left(repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*1+1)::integer), 50),
 				(select id from account order by random() limit 1),
 				(select id from contact order by random() limit 1),
-				repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*5+1)::integer),
+				repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*5+1)::integer),
 				(select id from "user" order by random() limit 1),
 				(select rndst from (select unnest(enum_range(null::status)) as rndst) rnd order by random() limit 1),
 				(select now() - interval '1 day' * round(random()*100) as timestamp));
@@ -482,7 +482,7 @@ call insert_test_data(100)
 
 drop procedure insert_test_data
 
--- 7. Для удаления тестовых данных
+-- 7. Р”Р»СЏ СѓРґР°Р»РµРЅРёСЏ С‚РµСЃС‚РѕРІС‹С… РґР°РЅРЅС‹С…
 
 create or replace procedure erase_test_data() 
 as $$
@@ -498,7 +498,7 @@ call erase_test_data();
 
 drop procedure erase_test_data
 
---8.Внесение новой записи в таблицу courier 
+--8.Р’РЅРµСЃРµРЅРёРµ РЅРѕРІРѕР№ Р·Р°РїРёСЃРё РІ С‚Р°Р±Р»РёС†Сѓ courier 
 
 create or replace procedure add_courier(from_place varchar, where_place varchar, "name" varchar, account_id uuid, contact_id uuid, description text, user_id uuid)
 as $$
@@ -509,17 +509,17 @@ end;
 $$ language plpgsql;
 
 
-call add_courier(repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*5+1)::integer),
-				repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*5+1)::integer),
-				repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*1+1)::integer),
+call add_courier(repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*5+1)::integer),
+				repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*5+1)::integer),
+				repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*1+1)::integer),
 				rndm_id('account'),
 				rndm_id('contact'),
-				repeat(substring('абвгдеёжзийклмнопрстуфхцчшщьыъэюя', 1, (random()*32+1)::integer), (random()*5+1)::integer),
+				repeat(substring('Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ', 1, (random()*32+1)::integer), (random()*5+1)::integer),
 				rndm_id('user'))
 
 drop procedure add_courier;
 				
-create or replace function rndm_id(varchar) returns uuid -- случайное id из таблицы в запросе для вызова процедуры внесения новой записи 
+create or replace function rndm_id(varchar) returns uuid -- СЃР»СѓС‡Р°Р№РЅРѕРµ id РёР· С‚Р°Р±Р»РёС†С‹ РІ Р·Р°РїСЂРѕСЃРµ РґР»СЏ РІС‹Р·РѕРІР° РїСЂРѕС†РµРґСѓСЂС‹ РІРЅРµСЃРµРЅРёСЏ РЅРѕРІРѕР№ Р·Р°РїРёСЃРё 
 as $$
 declare rndm_u uuid;
 begin
@@ -533,7 +533,7 @@ select rndm_id('account');
 
 drop function rndm_id
 
---9.Функция по получению записей о заявках на курьера
+--9.Р¤СѓРЅРєС†РёСЏ РїРѕ РїРѕР»СѓС‡РµРЅРёСЋ Р·Р°РїРёСЃРµР№ Рѕ Р·Р°СЏРІРєР°С… РЅР° РєСѓСЂСЊРµСЂР°
 
 create or replace function get_courier()
 	returns table ( id uuid, from_place varchar, where_place varchar,
@@ -569,7 +569,7 @@ select * from get_courier();
 
 drop function get_courier
 
---10.Функция по изменению статуса заявки
+--10.Р¤СѓРЅРєС†РёСЏ РїРѕ РёР·РјРµРЅРµРЅРёСЋ СЃС‚Р°С‚СѓСЃР° Р·Р°СЏРІРєРё
 
 create or replace procedure change_status(status, uuid)
 as $$
@@ -583,7 +583,7 @@ call change_status(rndm_status(), rndm_id('courier'));
 
 drop procedure change_status
 
-create or replace function rndm_status() returns status  -- случайная запись массива для проверки вызова процедуры статуса заявки.
+create or replace function rndm_status() returns status  -- СЃР»СѓС‡Р°Р№РЅР°СЏ Р·Р°РїРёСЃСЊ РјР°СЃСЃРёРІР° РґР»СЏ РїСЂРѕРІРµСЂРєРё РІС‹Р·РѕРІР° РїСЂРѕС†РµРґСѓСЂС‹ СЃС‚Р°С‚СѓСЃР° Р·Р°СЏРІРєРё.
 as $$
 begin 
 	return rndst from (select unnest(enum_range(null::status)) as rndst) rnd order by random() limit 1;
@@ -594,7 +594,7 @@ select rndm_status();
 
 drop function rndm_status
 
---11. Функция получения списка сотрудников компании.
+--11. Р¤СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃРїРёСЃРєР° СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РєРѕРјРїР°РЅРёРё.
 
 create or replace function get_users() 
 	returns table ("user" varchar)
@@ -611,7 +611,7 @@ select * from get_users()
 
 drop function get_users
 
---12.Функция получения списка контрагентов.
+--12.Р¤СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃРїРёСЃРєР° РєРѕРЅС‚СЂР°РіРµРЅС‚РѕРІ.
 
 create or replace function get_accounts()
 	returns table (account varchar)
@@ -628,14 +628,14 @@ select * from get_accounts();
 
 drop function get_accounts
 
---13.Функция  получения списка контактов.
+--13.Р¤СѓРЅРєС†РёСЏ  РїРѕР»СѓС‡РµРЅРёСЏ СЃРїРёСЃРєР° РєРѕРЅС‚Р°РєС‚РѕРІ.
 
 create or replace function get_contacts(account_id uuid default null)
 	returns table (contact varchar)
 as $$
 begin
 	if $1 is NULL then
-		return query select 'Выберите контрагента'::varchar;
+		return query select 'Р’С‹Р±РµСЂРёС‚Рµ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°'::varchar;
 	else
 		return query
 			select concat(last_name, ' ', first_name)::varchar from contact
@@ -651,27 +651,27 @@ select * from contact;
 
 drop function get_contacts
 
---14. Представление по получению статистики о заявках на курьера
+--14. РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РїРѕ РїРѕР»СѓС‡РµРЅРёСЋ СЃС‚Р°С‚РёСЃС‚РёРєРё Рѕ Р·Р°СЏРІРєР°С… РЅР° РєСѓСЂСЊРµСЂР°
 
 create view courier_statistic as 
 with 
 	cte_courier as(
 		select 
 			account_id,
-			count(case when "status" = 'Выполнено' then status end) as count_complete, --количество завершенных заказов для каждого контрагента
-			count(case when "status" = 'Выполняется' then status end) as count_courier, --количество заказов на курьера для каждого контрагента
-			count(case when "status" = 'Отменен' then status end) as count_canceled, --количество отмененных заказов для каждого контрагента
-			array_remove(array_agg(case when "status" = 'Отменен' then user_id end), NULL) as cansel_user_array, --массив с идентификаторами сотрудников, по которым были заказы со статусом "Отменен" для каждого контрагента
-			count(case when date_trunc('Month', created_date) = date_trunc('Month', current_date) then id end) as current_count, -- кол-во заказов в текущем месяце
-			count(case when date_trunc('Month', created_date) = date_trunc('Month', current_date - interval '1 month') then id end) as last_count,-- Кол-во заказов в предыдущем месяце
-			count(distinct where_place) as count_where_place --количество мест доставки для каждого контрагента
+			count(case when "status" = 'Р’С‹РїРѕР»РЅРµРЅРѕ' then status end) as count_complete, --РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РІРµСЂС€РµРЅРЅС‹С… Р·Р°РєР°Р·РѕРІ РґР»СЏ РєР°Р¶РґРѕРіРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+			count(case when "status" = 'Р’С‹РїРѕР»РЅСЏРµС‚СЃСЏ' then status end) as count_courier, --РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·РѕРІ РЅР° РєСѓСЂСЊРµСЂР° РґР»СЏ РєР°Р¶РґРѕРіРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+			count(case when "status" = 'РћС‚РјРµРЅРµРЅ' then status end) as count_canceled, --РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РјРµРЅРµРЅРЅС‹С… Р·Р°РєР°Р·РѕРІ РґР»СЏ РєР°Р¶РґРѕРіРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+			array_remove(array_agg(case when "status" = 'РћС‚РјРµРЅРµРЅ' then user_id end), NULL) as cansel_user_array, --РјР°СЃСЃРёРІ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР°РјРё СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ, РїРѕ РєРѕС‚РѕСЂС‹Рј Р±С‹Р»Рё Р·Р°РєР°Р·С‹ СЃРѕ СЃС‚Р°С‚СѓСЃРѕРј "РћС‚РјРµРЅРµРЅ" РґР»СЏ РєР°Р¶РґРѕРіРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+			count(case when date_trunc('Month', created_date) = date_trunc('Month', current_date) then id end) as current_count, -- РєРѕР»-РІРѕ Р·Р°РєР°Р·РѕРІ РІ С‚РµРєСѓС‰РµРј РјРµСЃСЏС†Рµ
+			count(case when date_trunc('Month', created_date) = date_trunc('Month', current_date - interval '1 month') then id end) as last_count,-- РљРѕР»-РІРѕ Р·Р°РєР°Р·РѕРІ РІ РїСЂРµРґС‹РґСѓС‰РµРј РјРµСЃСЏС†Рµ
+			count(distinct where_place) as count_where_place --РєРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ РґРѕСЃС‚Р°РІРєРё РґР»СЏ РєР°Р¶РґРѕРіРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
 		from 
 			courier
 		group by account_id),
 	cte_contact as(
 		select
 			account_id,
-			count(id) as count_contact   --количество контактов по контрагенту, которым доставляются документы
+			count(id) as count_contact   --РєРѕР»РёС‡РµСЃС‚РІРѕ РєРѕРЅС‚Р°РєС‚РѕРІ РїРѕ РєРѕРЅС‚СЂР°РіРµРЅС‚Сѓ, РєРѕС‚РѕСЂС‹Рј РґРѕСЃС‚Р°РІР»СЏСЋС‚СЃСЏ РґРѕРєСѓРјРµРЅС‚С‹
 		from
 			contact
 		group by account_id)
