@@ -1,24 +1,25 @@
---Р“в‚¬Р“Р†Р“В®Р“Р€Р“В®Р“СћР“В Р“С— Р“В°Р“В Р“РЋР“В®Р“Р†Р“В  Р“Р‡Р“В® SQL Р“В®Р“РЋР“В»Р“В·Р“В­Р“В®Р“В¬Р“С–
+--Итоговая работа по SQL обычному
 
--- Р“вЂЎР“В Р“В¤Р“В Р“В­Р“РЃР“Тђ Р’в„–1==============================================================================================================
+-- Задание №1 ==============================================================================================================
+--Какие самолеты имеют более 50 посадочных мест?
 with cte_seat as 
 (
 	select 
 		aircraft_code, 
-		count(aircraft_code) as "Р“Р‰Р“В®Р“В«Р“В«Р“РЃР“В·Р“ТђР“В±Р“Р†Р“СћР“В® Р“В¬Р“ТђР“В±Р“Р†"
+		count(aircraft_code) as "Колличество мест"
 	from seats s
 	group by aircraft_code
 ) 
 select 
 	a.model,
-	"Р“Р‰Р“В®Р“В«Р“В«Р“РЃР“В·Р“ТђР“В±Р“Р†Р“СћР“В® Р“В¬Р“ТђР“В±Р“Р†" 
+	"Колличество мест" 
 	from aircrafts a 
 		join cte_seat s on a.aircraft_code = s.aircraft_code
-where "Р“Р‰Р“В®Р“В«Р“В«Р“РЃР“В·Р“ТђР“В±Р“Р†Р“СћР“В® Р“В¬Р“ТђР“В±Р“Р†" > 50
+where "Колличество мест" > 50
 
---Р“вЂЎР“В Р“В¤Р“В Р“В­Р“РЃР“Тђ Р’в„–2================================================================================================================
-
-with price as --Р“вЂљР“В Р“В°Р“РЃР“В Р“В­Р“Р† 1
+--Задание №2================================================================================================================
+--В каких аэропортах есть рейсы, в рамках которых можно добраться бизнес - классом дешевле, чем эконом - классом?
+with price as --Вариант 1
 (	
 	select 
 		flight_id, 
@@ -33,7 +34,7 @@ with price as --Р“вЂљР“В Р“В°Р“РЃР“В Р“В­Р“Р† 1
 (
 	select 
 		flight_id, 
-		min(min_business) as "Р“РѓР“РЃР“В§Р“В­Р“ТђР“В±Р“В±", max(max_economy) as "Р“СњР“Р„Р“В®Р“В­Р“В®Р“В¬" from price
+		min(min_business) as "Бизнесс", max(max_economy) as "Эконом" from price
 	group by flight_id
 	having max(max_economy) is not null and  min(min_business) is not null
 )
@@ -43,12 +44,12 @@ with price as --Р“вЂљР“В Р“В°Р“РЃР“В Р“В­Р“Р† 1
 	from fli fl
 		join flights f on fl.flight_id = f.flight_id 
 		join airports a on f.arrival_airport = a.airport_code
-	where "Р“РѓР“РЃР“В§Р“В­Р“ТђР“В±Р“В±" < "Р“СњР“Р„Р“В®Р“В­Р“В®Р“В¬"
+	where "Бизнесс" < "Эконом"
 				
 
 
 
-with mas as --Р“вЂљР“В Р“В°Р“РЃР“В Р“В­Р“Р† 2
+with mas as --Вариант 2
 (
 	select 
 		flight_id, 
@@ -62,7 +63,7 @@ with mas as --Р“вЂљР“В Р“В°Р“РЃР“В Р“В­Р“Р† 2
 	select 
 		flight_id, 
 		fare_conditions, 
-		min(amount) as "Р“РѓР“РЃР“В§Р“В­Р“ТђР“В±Р“В±" 
+		min(amount) as "Бизнесс" 
 	from mas 
 	where fare_conditions = 'Business'
 	group by 1,2
@@ -72,7 +73,7 @@ with mas as --Р“вЂљР“В Р“В°Р“РЃР“В Р“В­Р“Р† 2
 	select 
 		flight_id, 
 		fare_conditions, 
-		max(amount) as "Р“СњР“Р„Р“В®Р“В­Р“В®Р“В¬" 
+		max(amount) as "Эконом" 
 	from mas
 	where fare_conditions = 'Economy'
 	group by 1,2
@@ -81,8 +82,8 @@ with mas as --Р“вЂљР“В Р“В°Р“РЃР“В Р“В­Р“Р† 2
 (
 	select 
 		b.flight_id, 
-		b.Р“РѓР“РЃР“В§Р“В­Р“ТђР“В±Р“В±, 
-		e.Р“СњР“Р„Р“В®Р“В­Р“В®Р“В¬ 
+		b.Бизнесс, 
+		e.Эконом 
 	from bus b
 		join eco e on e.flight_id = b.flight_id 
 )
@@ -92,11 +93,11 @@ select
 from fli fl
 	join flights f on fl.flight_id = f.flight_id 
 	join airports a on f.arrival_airport = a.airport_code
-where "Р“РѓР“РЃР“В§Р“В­Р“ТђР“В±Р“В±" < "Р“СњР“Р„Р“В®Р“В­Р“В®Р“В¬"
+where "Бизнесс" < "Эконом"
 
 
---Р“вЂЎР“В Р“В¤Р“В Р“В­Р“РЃР“Тђ Р’в„–3========================================================================================================================
-
+--Задание №3========================================================================================================================
+--Есть ли самолеты, не имеющие бизнес - класса?
 with bus as 
 (
 	select 
@@ -111,22 +112,22 @@ select
 from flights f
 	join bus b on f.flight_id = b.flight_id
 	
---Р“вЂЎР“В Р“В¤Р“В Р“В­Р“РЃР“Тђ Р’в„–4========================================================================================================================
-
+--Задание №4========================================================================================================================
+--Найдите количество занятых мест для каждого рейса, процентное отношение количества занятых мест к общему количеству мест в самолете, добавьте накопительный итог вывезенных пассажиров по каждому аэропорту на каждый день.
 with a as 
 (
 select                                 
 	a.flight_id,
 	a.actual_departure,
 	a.airport_name,
-	"Р“вЂљР“В±Р“ТђР“Р€Р“В® Р“Р‡Р“В®Р“В±Р“В Р“В¤Р“В®Р“В·Р“В­Р“В»Р“Вµ Р“В¬Р“ТђР“В±Р“Р†"
+	"Всего посадочных мест"
  from 
 (
 	select 
 		f.flight_id,
 		a2.airport_name,
 		f.actual_departure,
-		count(s.seat_no)over(partition by f.flight_id) as "Р“вЂљР“В±Р“ТђР“Р€Р“В® Р“Р‡Р“В®Р“В±Р“В Р“В¤Р“В®Р“В·Р“В­Р“В»Р“Вµ Р“В¬Р“ТђР“В±Р“Р†" 
+		count(s.seat_no)over(partition by f.flight_id) as "Всего посадочных мест" 
 	from flights f
 			join aircrafts ai on f.aircraft_code  = ai.aircraft_code 
 			join seats s on ai.aircraft_code = s.aircraft_code
@@ -138,47 +139,51 @@ b as
 (
 select                             
 	b.flight_id,
-	"Р“В§Р“В Р“В­Р“С—Р“Р†Р“В»Р“Вµ Р“В¬Р“ТђР“В±Р“Р† Р“Сћ Р“В±Р“В Р“В¬Р“В®Р“В«Р“ТђР“Р†Р“Тђ"  
+	"занятых мест в самолете"  
 from    
 (
 	select 
 		f.flight_id,
-		count(ticket_no) over (partition by f.flight_id) as "Р“В§Р“В Р“В­Р“С—Р“Р†Р“В»Р“Вµ Р“В¬Р“ТђР“В±Р“Р† Р“Сћ Р“В±Р“В Р“В¬Р“В®Р“В«Р“ТђР“Р†Р“Тђ"
+		count(ticket_no) over (partition by f.flight_id) as "занятых мест в самолете"
 	from flights f 
 			left join boarding_passes bp on bp.flight_id = f.flight_id
 ) as b
-group by b.flight_id,"Р“В§Р“В Р“В­Р“С—Р“Р†Р“В»Р“Вµ Р“В¬Р“ТђР“В±Р“Р† Р“Сћ Р“В±Р“В Р“В¬Р“В®Р“В«Р“ТђР“Р†Р“Тђ"
+group by b.flight_id,"занятых мест в самолете"
 )
 select 
 	a.flight_id,
 	a.actual_departure::date,
 	a.airport_name,
-	a."Р“вЂљР“В±Р“ТђР“Р€Р“В® Р“Р‡Р“В®Р“В±Р“В Р“В¤Р“В®Р“В·Р“В­Р“В»Р“Вµ Р“В¬Р“ТђР“В±Р“Р†",
-	b."Р“В§Р“В Р“В­Р“С—Р“Р†Р“В»Р“Вµ Р“В¬Р“ТђР“В±Р“Р† Р“Сћ Р“В±Р“В Р“В¬Р“В®Р“В«Р“ТђР“Р†Р“Тђ",
-	round((b."Р“В§Р“В Р“В­Р“С—Р“Р†Р“В»Р“Вµ Р“В¬Р“ТђР“В±Р“Р† Р“Сћ Р“В±Р“В Р“В¬Р“В®Р“В«Р“ТђР“Р†Р“Тђ"/a."Р“вЂљР“В±Р“ТђР“Р€Р“В® Р“Р‡Р“В®Р“В±Р“В Р“В¤Р“В®Р“В·Р“В­Р“В»Р“Вµ Р“В¬Р“ТђР“В±Р“Р†"::numeric)*100, 2) as procent,
-	sum(b."Р“В§Р“В Р“В­Р“С—Р“Р†Р“В»Р“Вµ Р“В¬Р“ТђР“В±Р“Р† Р“Сћ Р“В±Р“В Р“В¬Р“В®Р“В«Р“ТђР“Р†Р“Тђ")over(partition by a.airport_name order by a.actual_departure)
+	a."Всего посадочных мест",
+	b."занятых мест в самолете",
+	round((b."занятых мест в самолете"/a."Всего посадочных мест"::numeric)*100, 2) as procent,
+	sum(b."занятых мест в самолете")over(partition by a.airport_name order by a.actual_departure)
 from a 
 	join b on a.flight_id = b.flight_id
 
---Р“вЂЎР“В Р“В¤Р“В Р“В­Р“РЃР“Тђ Р’в„–5========================================================================================================
+--Задание №5========================================================================================================
+--Найдите процентное соотношение перелетов по маршрутам от общего количества перелетов. 
+--Выведите в результат названия аэропортов и процентное отношение.
 
 	select distinct 
-		concat(departure_airport,'-', arrival_airport) as "Р“РЉР“В Р“В°Р“С‘Р“В°Р“С–Р“Р†",
-		count(flight_id)over(partition by concat(departure_airport,'-', arrival_airport)) as "Р“РЏР“ТђР“В°Р“ТђР“В«Р“ТђР“Р†Р“В» Р“Р‡Р“В® Р“В¬Р“В Р“В°Р“С‘Р“В°Р“С–Р“Р†Р“В Р“В¬",
-		count(flight_id)over() as "Р“Р‹Р“РЋР“в„–Р“ТђР“Тђ Р“Р„Р“В®Р“В«-Р“СћР“В® Р“Р‡Р“ТђР“В°Р“ТђР“В«Р“ТђР“Р†Р“В®Р“Сћ",
+		concat(departure_airport,'-', arrival_airport) as "Маршрут",
+		count(flight_id)over(partition by concat(departure_airport,'-', arrival_airport)) as "Перелеты по маршрутам",
+		count(flight_id)over() as "Общее кол-во перелетов",
 		round((count(flight_id)over(partition by concat(departure_airport,'-', arrival_airport))/count(flight_id)over()::numeric)*100, 2) 
 	from flights f 
 
 
---Р“вЂЎР“В Р“В¤Р“В Р“В­Р“РЃР“Тђ Р’в„–6=======================================================================================================
-	
+--Задание №6=======================================================================================================
+--Выведите количество пассажиров по каждому коду сотового оператора, если учесть, что код оператора - это три символа после +7	
 	select
-		left(split_part(contact_data::text,'"phone": "+7', 2),3) as "Р“Р‰Р“В®Р“В¤ Р“В®Р“Р‡Р“ТђР“В°Р“В Р“Р†Р“В®Р“В°Р“В ",
-		count(left(split_part(contact_data::text,'"phone": "+7', 2),3)) as "Р“РЏР“В Р“В±Р“В±Р“В Р“В¦Р“РЃР“В°Р“В®Р“Сћ"
+		left(split_part(contact_data::text,'"phone": "+7', 2),3) as "Код оператора",
+		count(left(split_part(contact_data::text,'"phone": "+7', 2),3)) as "Пассажиров"
 	from tickets t
 	group by left(split_part(contact_data::text,'"phone": "+7', 2),3)
 	
---Р“вЂЎР“В Р“В¤Р“В Р“В­Р“РЃР“Тђ Р’в„–7=======================================================================================================
+--Задание №7=======================================================================================================
+--Между какими городами не существует перелетов?
+
 with tab as
 (
 	select
@@ -194,22 +199,27 @@ with tab as
 	from flights f 
 )
 select
-	tab.departure as "Р“Р‚Р“Р…Р“В°Р“В®Р“Р‡Р“В®Р“В°Р“Р† Р“В®Р“Р†Р“Р‡Р“В°Р“В Р“СћР“В«Р“ТђР“В­Р“РЃР“С—",
-	tab.arrival as "Р“Р‚Р“Р…Р“В°Р“В®Р“Р‡Р“В®Р“В°Р“Р† Р“Р‡Р“В°Р“РЃР“РЋР“В»Р“Р†Р“РЃР“С—",
-	a2.city as "Р“С“Р“В®Р“В°Р“В®Р“В¤ Р“В®Р“Р†Р“Р‡Р“В°Р“В Р“СћР“В«Р“ТђР“В­Р“РЃР“С—",
-	a.city as "Р“С“Р“В®Р“В°Р“В®Р“В¤ Р“Р‡Р“В°Р“РЃР“РЋР“В»Р“Р†Р“РЃР“С—",
-	concat(a2.city, ' - ', a.city) as "Р“РЉР“В Р“В°Р“С‘Р“В°Р“С–Р“Р†"
+	tab.departure as "Аэропорт отправления",
+	tab.arrival as "Аэропорт прибытия",
+	a2.city as "Город отправления",
+	a.city as "Город прибытия",
+	concat(a2.city, ' - ', a.city) as "Маршрут"
 from tab 
 	join airports a on tab.arrival = a.airport_code 
 	join airports a2 on tab.departure = a2.airport_code
 	
---Р“вЂЎР“В Р“В¤Р“В Р“В­Р“РЃР“Тђ Р’в„–8=======================================================================================================
+--Задание №8=======================================================================================================
+--Классифицируйте финансовые обороты (сумма стоимости билетов) по маршрутам:
+--До 50 млн - low
+--От 50 млн включительно до 150 млн - middle
+--От 150 млн включительно - high
+--Выведите в результат количество маршрутов в каждом классе.
 
 with route as 
 (
 	select 
-		concat(f.departure_airport, ' - ', f.arrival_airport) as "Р“РЉР“В Р“В°Р“С‘Р“В°Р“С–Р“Р†",
-		sum(amount) as "Р“вЂР“С–Р“В¬Р“В¬Р“В "
+		concat(f.departure_airport, ' - ', f.arrival_airport) as "Маршрут",
+		sum(amount) as "Сумма"
 	from flights f
 		join ticket_flights tf on tf.flight_id = f.flight_id
 	group by concat(f.departure_airport, ' - ', f.arrival_airport)
@@ -217,21 +227,21 @@ with route as
 	classific as
 (
 	select 
-		"Р“РЉР“В Р“В°Р“С‘Р“В°Р“С–Р“Р†",
-		"Р“вЂР“С–Р“В¬Р“В¬Р“В ",
-		case when 0 < "Р“вЂР“С–Р“В¬Р“В¬Р“В "  and "Р“вЂР“С–Р“В¬Р“В¬Р“В " < 50000000 then 'low'
-			 when "Р“вЂР“С–Р“В¬Р“В¬Р“В " >= 50000000 and "Р“вЂР“С–Р“В¬Р“В¬Р“В " < 150000000 then 'middle' 
+		"Маршрут",
+		"Сумма",
+		case when 0 < "Сумма"  and "Сумма" < 50000000 then 'low'
+			 when "Сумма" >= 50000000 and "Сумма" < 150000000 then 'middle' 
 			 else 'high' end "Class"	
 	from route
 )
 select 
 	"Class",
-	count("Р“РЉР“В Р“В°Р“С‘Р“В°Р“С–Р“Р†")
+	count("Маршрут")
 from classific
 group by "Class"
 
---Р“вЂЎР“В Р“В¤Р“В Р“В­Р“РЃР“Тђ Р’в„–9======================================================================================================
-
+--Задание №9======================================================================================================
+--Выведите пары городов между которыми расстояние более 5000 км
 select * from airports a 
 
 with city as
@@ -249,6 +259,6 @@ with city as
 )
 select 
 	concat(departure, ' - ', arrival),
-	round(6371*(acos(sin(latitude_a)*sin(latitude_b) + cos(latitude_a)*cos(latitude_b)*(cos(longitude_a - longitude_b))))::numeric, 0) as "Р“С’Р“В Р“В±Р“В±Р“Р†Р“В®Р“С—Р“В­Р“РЃР“Тђ Р“В¬Р“ТђР“В¦Р“В¤Р“С– Р“Р€Р“В®Р“В°Р“В®Р“В¤Р“В Р“В¬Р“РЃ"
+	round(6371*(acos(sin(latitude_a)*sin(latitude_b) + cos(latitude_a)*cos(latitude_b)*(cos(longitude_a - longitude_b))))::numeric, 0) as "Расстояние между городами"
 from city
 where round(6371*(acos(sin(latitude_a)*sin(latitude_b) + cos(latitude_a)*cos(latitude_b)*(cos(longitude_a - longitude_b))))::numeric, 0) > 5000
