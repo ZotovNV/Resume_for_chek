@@ -46,7 +46,7 @@
 [Унифицированный язык моделирования. Диаграмма классов] Подставить файлик png
 [Диаграмма вариантов использования] подставить файлик png \
 [Описание вариантов использования](https://docs.google.com/document/d/19amcO2RAErgTcaCEH6ZmzeuxuEj15-4O32hZ34OPWvo/edit?usp=sharing) \
-[Диаграммы активности и последовательности]подставить jpg \
+![Диаграммы активности и последовательности](https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_активностей_UML.jpg) \
 [User stories и job stories](https://docs.google.com/document/d/19g6Ssr87s-pZVNZGjl_PQH_WdURyw91gwsiI0sOEDMY/edit?usp=sharing) \
 [Согласование и управление изменениями требований] добавить png \
 
