@@ -42,25 +42,40 @@
 
 [Методы сбора требований](https://docs.google.com/document/d/1gztN9ZdBAxItbg6LlM2kZK0FL0Dk5fwDQxpVzIvPaOE/edit?usp=sharing) \
 [Методы формализации данных](https://docs.google.com/document/d/1Qh5ajQwQEqdNw40Ev4mkA92bclqsC_2msEt_Vec8b7o/edit?usp=sharing) \
-[Business canvas model](https://docs.google.com/document/d/1P_EXOTXocwItv1zCNn-IeuZ0zZ0d7-d9z7wr4fKDDkY/edit?usp=sharing) \
-[Унифицированный язык моделирования. Диаграмма классов] Подставить файлик png
-[Диаграмма вариантов использования] подставить файлик png \
-[Описание вариантов использования](https://docs.google.com/document/d/19amcO2RAErgTcaCEH6ZmzeuxuEj15-4O32hZ34OPWvo/edit?usp=sharing) \
-[Диаграммы активности и последовательности](https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_активностей_UML.jpg) \
-[User stories и job stories](https://docs.google.com/document/d/19g6Ssr87s-pZVNZGjl_PQH_WdURyw91gwsiI0sOEDMY/edit?usp=sharing) \
-[Согласование и управление изменениями требований] добавить png \
+[Business canvas model](https://docs.google.com/document/d/1P_EXOTXocwItv1zCNn-IeuZ0zZ0d7-d9z7wr4fKDDkY/edit?usp=sharing)
+<details open>
+    <summary>Унифицированный язык моделирования. Диаграмма классов</summary>
+    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_классов_UML.png" width="300"/>
+</details>
+<details open>
+    <summary>Диаграмма вариантов использования</summary>
+    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма%20вариантов%20использования.png" width="300"/>
+</details>
+
+[Описание вариантов использования](https://docs.google.com/document/d/19amcO2RAErgTcaCEH6ZmzeuxuEj15-4O32hZ34OPWvo/edit?usp=sharing)
+<details open>
+    <summary>Диаграммы активности и последовательности</summary>
+    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_активностей_UML.jpg" width="300"/>
+</details>
+
+[User stories и job stories](https://docs.google.com/document/d/19g6Ssr87s-pZVNZGjl_PQH_WdURyw91gwsiI0sOEDMY/edit?usp=sharing)
+<details open>
+    <summary>Согласование и управление изменениями требований</summary>
+    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_классов_UML.png" width="300"/>
+</details>
 
 Итоговая: \
 [Описание варианта использования](https://docs.google.com/document/d/1TSmT2qVMZ2B9060EYL0q7vrkVA2_fdoBdbxE234GayE/edit?usp=sharing) \
-[Требования](https://docs.google.com/document/d/10Knt28rkLkWNwYVuwPmrWjH7dDxU8BJVianu1j1TEn4/edit?usp=sharing) \
-Диаграмма / подставить файл png в git \
-
-
-
+[Требования](https://docs.google.com/document/d/10Knt28rkLkWNwYVuwPmrWjH7dDxU8BJVianu1j1TEn4/edit?usp=sharing)
 <details open>
-    <summary>Диаграммы активности и последовательности</summary>
-    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_активностей_UML.jpg" width="200"/>
+    <summary>Диаграмма.</summary>
+    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Задание_Требования_итог.png" width="300"/>
 </details>
+
+
+
+
+
 
 
 
