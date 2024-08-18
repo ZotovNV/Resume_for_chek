@@ -20,53 +20,53 @@
 
 ### Моделирование бизнес-процессов.
 [Потоки данных.](https://docs.google.com/document/d/1GE8MMnP9DOXHojaEs3bpO00U06qAot7uUjhuMbWvYwg/edit?usp=sharing) \
-[Моделирование бизнес-процессов и нотация BPMN](https://drive.google.com/file/d/1conU8UBZCQ1n4wk2P1q_m_E2Ij-RwyCW/view?usp=sharing)
+[Моделирование бизнес-процессов и нотация BPMN.](https://drive.google.com/file/d/1conU8UBZCQ1n4wk2P1q_m_E2Ij-RwyCW/view?usp=sharing)
 
 Итоговое задание: \
 [Диаграмма взаимодействий.](https://drive.google.com/file/d/1cZ171kZpYWw4hL10GGF9JFjgYL11Lygy/view?usp=sharing) \
 [Диаграмма классов.](https://drive.google.com/file/d/1WjLLXeYWA0mJWxA4zp7D1tDLSmq-lC2O/view?usp=sharing)
 
 ### Прототипирование интерфейсов.
-[Создание в Figma прототипа главного экрана приложения для учёта трат для iOS](https://www.figma.com/design/RNAoBw4qn8fsJ0UIVgBAAy/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0-2?node-id=0-1&t=Qfip01CE4M0HScdc-1)
+[Создание в Figma прототипа главного экрана приложения для учёта трат для iOS.](https://www.figma.com/design/RNAoBw4qn8fsJ0UIVgBAAy/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0-2?node-id=0-1&t=Qfip01CE4M0HScdc-1)
 
 ### Интеграция систем и документирование API.
 [Интеграции ИС.](https://docs.google.com/document/d/1d7YZwDaW42pezl17abIn82fLtyrafTX2JuLXOLbTJ9E/edit?usp=sharing) \
-[Подготовка данных для SwaggerAPI](https://docs.google.com/document/d/1zFYJiBzqv36G5CcbHgvlz79hgX0d1Eu_nFxBHTHSyCQ/edit?usp=sharing) \
-[SwaggerAPI](https://app.swaggerhub.com/apis/Stifnsk/Swagger/1.0.0)
+[Подготовка данных для SwaggerAPI.](https://docs.google.com/document/d/1zFYJiBzqv36G5CcbHgvlz79hgX0d1Eu_nFxBHTHSyCQ/edit?usp=sharing) \
+[SwaggerAPI.](https://app.swaggerhub.com/apis/Stifnsk/Swagger/1.0.0)
 
 Итоговое задание: \
-[Данные для SwaggerAPI](https://docs.google.com/document/d/1zFYJiBzqv36G5CcbHgvlz79hgX0d1Eu_nFxBHTHSyCQ/edit?usp=sharing) \
-[SwaggerAPI](https://app.swaggerhub.com/apis/Stifnsk/Swagger2.0/1.0.0)
+[Данные для SwaggerAPI.](https://docs.google.com/document/d/1zFYJiBzqv36G5CcbHgvlz79hgX0d1Eu_nFxBHTHSyCQ/edit?usp=sharing) \
+[SwaggerAPI.](https://app.swaggerhub.com/apis/Stifnsk/Swagger2.0/1.0.0)
 
 ### Анализ требований.
 
-[Методы сбора требований](https://docs.google.com/document/d/1gztN9ZdBAxItbg6LlM2kZK0FL0Dk5fwDQxpVzIvPaOE/edit?usp=sharing) \
-[Методы формализации данных](https://docs.google.com/document/d/1Qh5ajQwQEqdNw40Ev4mkA92bclqsC_2msEt_Vec8b7o/edit?usp=sharing) \
-[Business canvas model](https://docs.google.com/document/d/1P_EXOTXocwItv1zCNn-IeuZ0zZ0d7-d9z7wr4fKDDkY/edit?usp=sharing)
+[Методы сбора требований.](https://docs.google.com/document/d/1gztN9ZdBAxItbg6LlM2kZK0FL0Dk5fwDQxpVzIvPaOE/edit?usp=sharing) \
+[Методы формализации данных.](https://docs.google.com/document/d/1Qh5ajQwQEqdNw40Ev4mkA92bclqsC_2msEt_Vec8b7o/edit?usp=sharing) \
+[Business canvas model.](https://docs.google.com/document/d/1P_EXOTXocwItv1zCNn-IeuZ0zZ0d7-d9z7wr4fKDDkY/edit?usp=sharing)
 <details closed>
-    <summary>Унифицированный язык моделирования. Диаграмма классов</summary>
+    <summary>Унифицированный язык моделирования. Диаграмма классов.</summary>
     <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_классов_UML.jpg" width="400"/>
 </details>
 <details closed>
-    <summary>Диаграмма вариантов использования</summary>
+    <summary>Диаграмма вариантов использования.</summary>
     <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма%20вариантов%20использования.jpg" width="400"/>
 </details>
 
-[Описание вариантов использования](https://docs.google.com/document/d/19amcO2RAErgTcaCEH6ZmzeuxuEj15-4O32hZ34OPWvo/edit?usp=sharing)
+[Описание вариантов использования.](https://docs.google.com/document/d/19amcO2RAErgTcaCEH6ZmzeuxuEj15-4O32hZ34OPWvo/edit?usp=sharing)
 <details closed>
-    <summary>Диаграммы активности и последовательности</summary>
+    <summary>Диаграммы активности и последовательности.</summary>
     <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_активностей_UML.jpg" width="400"/>
 </details>
 
-[User stories и job stories](https://docs.google.com/document/d/19g6Ssr87s-pZVNZGjl_PQH_WdURyw91gwsiI0sOEDMY/edit?usp=sharing)
+[User stories и job stories.](https://docs.google.com/document/d/19g6Ssr87s-pZVNZGjl_PQH_WdURyw91gwsiI0sOEDMY/edit?usp=sharing)
 <details closed>
-    <summary>Согласование и управление изменениями требований</summary>
+    <summary>Согласование и управление изменениями требований.</summary>
     <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_классов_UML.jpg" width="400"/>
 </details>
 
 Итоговая: \
-[Описание варианта использования](https://docs.google.com/document/d/1TSmT2qVMZ2B9060EYL0q7vrkVA2_fdoBdbxE234GayE/edit?usp=sharing) \
-[Требования](https://docs.google.com/document/d/10Knt28rkLkWNwYVuwPmrWjH7dDxU8BJVianu1j1TEn4/edit?usp=sharing)
+[Описание варианта использования.](https://docs.google.com/document/d/1TSmT2qVMZ2B9060EYL0q7vrkVA2_fdoBdbxE234GayE/edit?usp=sharing) \
+[Требования.](https://docs.google.com/document/d/10Knt28rkLkWNwYVuwPmrWjH7dDxU8BJVianu1j1TEn4/edit?usp=sharing)
 <details closed>
     <summary>Диаграмма.</summary>
     <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Задание_Требования_итог.jpg" width="400"/>
