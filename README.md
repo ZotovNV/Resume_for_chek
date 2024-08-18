@@ -45,11 +45,11 @@
 [Business canvas model](https://docs.google.com/document/d/1P_EXOTXocwItv1zCNn-IeuZ0zZ0d7-d9z7wr4fKDDkY/edit?usp=sharing)
 <details open>
     <summary>Унифицированный язык моделирования. Диаграмма классов</summary>
-    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_классов_UML.png" width="300"/>
+    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_классов_UML.jpg" width="300"/>
 </details>
 <details open>
     <summary>Диаграмма вариантов использования</summary>
-    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма%20вариантов%20использования.png" width="300"/>
+    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма%20вариантов%20использования.jpg" width="300"/>
 </details>
 
 [Описание вариантов использования](https://docs.google.com/document/d/19amcO2RAErgTcaCEH6ZmzeuxuEj15-4O32hZ34OPWvo/edit?usp=sharing)
@@ -61,7 +61,7 @@
 [User stories и job stories](https://docs.google.com/document/d/19g6Ssr87s-pZVNZGjl_PQH_WdURyw91gwsiI0sOEDMY/edit?usp=sharing)
 <details open>
     <summary>Согласование и управление изменениями требований</summary>
-    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_классов_UML.png" width="300"/>
+    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_классов_UML.jpg" width="300"/>
 </details>
 
 Итоговая: \
@@ -69,7 +69,7 @@
 [Требования](https://docs.google.com/document/d/10Knt28rkLkWNwYVuwPmrWjH7dDxU8BJVianu1j1TEn4/edit?usp=sharing)
 <details open>
     <summary>Диаграмма.</summary>
-    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Задание_Требования_итог.png" width="300"/>
+    <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Задание_Требования_итог.jpg" width="300"/>
 </details>
 
 
