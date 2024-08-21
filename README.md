@@ -1,5 +1,15 @@
 # Резюме
 ## Здесь представлены примеры итоговых и иных работ.
+### SQL
+[Задания по курсу SQL.](https://github.com/ZotovNV/Resume_for_chek/blob/main/Задания%20по%20курсу%20SQL.sql) \
+[Задания по продвинутому курсу SQL.](https://github.com/ZotovNV/Resume_for_chek/blob/main/Продвинутый%20курс%20по%20SQL%20(задания).sql) 
+
+Итоговое задание: \
+[Итоговая по курсу SQL.](https://github.com/ZotovNV/Resume_for_chek/blob/main/Итоговая%20по%20курсу%20SQL.sql) \
+[Итоговая по продвинутому курсу SQL.](https://github.com/ZotovNV/Resume_for_chek/blob/main/Продвинутый%20курс%20по%20SQL%20(итоговая).sql)
+### Python
+[Задания по Python.](https://colab.research.google.com/github/ZotovNV/Resume_for_chek/blob/main/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F_%D0%BF%D0%BE_Python.ipynb) \
+[Задания по библиотекам Python.](https://github.com/ZotovNV/Resume_for_chek/blob/main/Задания_по_библиотекам_Python.ipynb)
 ### Business intelligence
 Применение многомерных моделей. MDX и BI над кубами. \
 [Итоговое задание по курсу «Business intelligence»](https://public.tableau.com/views/_16941659335100/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) \
@@ -62,7 +72,7 @@
 <details closed>
     <summary>Согласование и управление изменениями требований.</summary>
     <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Диаграмма_классов_UML.jpg" width="400"/>
-</details>
+</details> 
 
 Итоговая: \
 [Описание варианта использования.](https://docs.google.com/document/d/1TSmT2qVMZ2B9060EYL0q7vrkVA2_fdoBdbxE234GayE/edit?usp=sharing) \
