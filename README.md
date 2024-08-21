@@ -10,7 +10,8 @@
 
 ### Python
 [Задания по Python.](https://github.com/ZotovNV/Resume_for_chek/blob/main/Задания_по_Python.ipynb) \
-[Задания по библиотекам Python.](https://github.com/ZotovNV/Resume_for_chek/blob/main/Задания_по_библиотекам_Python.ipynb)
+[Задания по библиотекам Python.](https://github.com/ZotovNV/Resume_for_chek/blob/main/Задания_по_библиотекам_Python.ipynb) \
+[Задания по скрапингу Python.](https://github.com/ZotovNV/Resume_for_chek/blob/main/Python_Основы_веб_скрапинга.ipynb)
 
 ### Business intelligence
 Применение многомерных моделей. MDX и BI над кубами. \
@@ -30,7 +31,7 @@
 [Спецификация на разрабатываемое приложение.](https://docs.google.com/document/d/1_f1EEmjuRixfQiWdZ4hZWJu5hoMZQPIPur4NJ9NNAYk/edit?usp=sharing) \
 [План задач / CJM.](https://miro.com/app/board/uXjVMeNjqzY=/?share_link_id=603527579026) 
 
-### Моделирование бизнес-процессов.
+### Моделирование бизнес-процессов
 [Потоки данных.](https://docs.google.com/document/d/1GE8MMnP9DOXHojaEs3bpO00U06qAot7uUjhuMbWvYwg/edit?usp=sharing) \
 [Моделирование бизнес-процессов и нотация BPMN.](https://drive.google.com/file/d/1conU8UBZCQ1n4wk2P1q_m_E2Ij-RwyCW/view?usp=sharing)
 
@@ -38,10 +39,10 @@
 [Диаграмма взаимодействий.](https://drive.google.com/file/d/1cZ171kZpYWw4hL10GGF9JFjgYL11Lygy/view?usp=sharing) \
 [Диаграмма классов.](https://drive.google.com/file/d/1WjLLXeYWA0mJWxA4zp7D1tDLSmq-lC2O/view?usp=sharing)
 
-### Прототипирование интерфейсов.
+### Прототипирование интерфейсов
 [Создание в Figma прототипа главного экрана приложения для учёта трат для iOS.](https://www.figma.com/design/RNAoBw4qn8fsJ0UIVgBAAy/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0-2?node-id=0-1&t=Qfip01CE4M0HScdc-1)
 
-### Интеграция систем и документирование API.
+### Интеграция систем и документирование API
 [Интеграции ИС.](https://docs.google.com/document/d/1d7YZwDaW42pezl17abIn82fLtyrafTX2JuLXOLbTJ9E/edit?usp=sharing) \
 [Подготовка данных для SwaggerAPI.](https://docs.google.com/document/d/1zFYJiBzqv36G5CcbHgvlz79hgX0d1Eu_nFxBHTHSyCQ/edit?usp=sharing) \
 [SwaggerAPI.](https://app.swaggerhub.com/apis/Stifnsk/Swagger/1.0.0)
@@ -50,7 +51,7 @@
 [Данные для SwaggerAPI.](https://docs.google.com/document/d/1zFYJiBzqv36G5CcbHgvlz79hgX0d1Eu_nFxBHTHSyCQ/edit?usp=sharing) \
 [SwaggerAPI.](https://app.swaggerhub.com/apis/Stifnsk/Swagger2.0/1.0.0)
 
-### Анализ требований.
+### Анализ требований
 
 [Методы сбора требований.](https://docs.google.com/document/d/1gztN9ZdBAxItbg6LlM2kZK0FL0Dk5fwDQxpVzIvPaOE/edit?usp=sharing) \
 [Методы формализации данных.](https://docs.google.com/document/d/1Qh5ajQwQEqdNw40Ev4mkA92bclqsC_2msEt_Vec8b7o/edit?usp=sharing) \
