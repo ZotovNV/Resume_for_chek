@@ -84,10 +84,11 @@
     <img src="https://github.com/ZotovNV/Resume_for_chek/blob/main/Задание_Требования_итог.jpg" width="400"/>
 </details>
 
-
-
-
-
+[Полученный документ о получении образования.](https://netology.ru/sharing/76dde3c708de3bf168afc5eb99be7b62?utm_source=social&utm_campaign=certificate_lms)
+<details closed>
+    <summary>Диплом.</summary>
+    <img src="https://netology.ru/sharing/76dde3c708de3bf168afc5eb99be7b62?utm_source=social&utm_campaign=certificate_lms" width="400"/>
+</details>
 
 
 
